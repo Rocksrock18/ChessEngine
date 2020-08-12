@@ -25,15 +25,15 @@ class Gameboard extends React.Component {
 
     //Set the move for the player that went
     if(window.location.href.includes("white")){
-      console.log("White goes first")
+      //console.log("White goes first")
       turn = "w";
     }
     else{
-      console.log("Black goes first")
+      //console.log("Black goes first")
       turn = "b";
       $.ajax({
         type: 'GET',   
-        url: 'https://localhost:44338/api/values?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1&move=1111',
+        url: 'http://chess-engine.azurewebsites.net/api/values?fen=' + game.fen(),
         dataType: 'text',
         success: 
         (data) => {
@@ -48,7 +48,7 @@ class Gameboard extends React.Component {
               fen: game.fen()
             })
 
-           console.log("New FEN: "+ game.fen());
+           //console.log("New FEN: "+ game.fen());
            
             this.setState({
               whiteMove: String(data).substring(0,4)
@@ -74,7 +74,7 @@ class Gameboard extends React.Component {
     
     var beforeFen = game.fen();
 
-    console.log(piece);
+    //console.log(piece);
 
     if (!piece.includes(this.state.turn)) return;
 
@@ -109,14 +109,12 @@ class Gameboard extends React.Component {
 
       $.ajax({
         type: 'GET',   
-        url: 'https://https://chessbackendapi.azurewebsites.net/api/values?fen=' + beforeFen + '&move=' + postContents,
-        // url: 'https://localhost:44338/api/values?fen=' + beforeFen + '&move=' + postContents,
+        url: 'http://chess-engine.azurewebsites.net/api/values?fen=' + game.fen(),
         dataType: 'text',
         success: 
         (data) => {
 
-          console.log("FEN Passed to API: "+ 'https://localhost:44338/api/values?fen=' + beforeFen);
-          // console.log("Black's Move: " + data);
+          //console.log("FEN Passed to API: "+ 'http://chess-engine.azurewebsites.net/api/values?fen=' + game.fen());
 
           game.move({
              to: String(data).substring(2,4),
@@ -128,7 +126,7 @@ class Gameboard extends React.Component {
               fen: game.fen()
             })
 
-           console.log("New FEN: "+ game.fen());
+           //console.log("New FEN: "+ game.fen());
            if(state.state.turn === "b"){
             state.setState({
               whiteMove: String(data).substring(0,4)
@@ -141,7 +139,7 @@ class Gameboard extends React.Component {
           }
 
            if(game.game_over()){
-            console.log("GAME OVER");
+            //console.log("GAME OVER");
             state.setState({
               gameEnd: true
             });
@@ -162,7 +160,7 @@ class Gameboard extends React.Component {
 
   onMoveEnd(){
     if(game.game_over()){
-      console.log("GAME OVER");
+      //console.log("GAME OVER");
       this.state.setState({
         gameEnd: true
       });
