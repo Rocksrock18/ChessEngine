@@ -674,31 +674,6 @@ namespace ChessEngine
             string fen = board.GetFen();
             fen = fen.Replace(' ', '_');
             return fen;
-            int underscore = fen.IndexOf('_') + 3;
-            String last;
-            int length = fen.Length;
-            int counter = 1;
-            int numUnderscores = 0;
-            while (numUnderscores < 2)
-            {
-                if (fen[length - counter] == '_')
-                {
-                    numUnderscores++;
-                }
-                counter++;
-            }
-            if (fen[length - counter] == '-')
-            {
-                last = "_-_0_1";
-            }
-            else
-            {
-                last = fen.Substring(length - counter - 2, 3);
-                last += "_0_1";
-            }
-            String newFen = fen.Substring(0, underscore);
-            newFen = newFen + "-" + last;
-            return newFen;
         }
     }
 }
