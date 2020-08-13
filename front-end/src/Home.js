@@ -34,13 +34,20 @@ class Home extends React.Component {
         </div>
 
       <Switch>
+            <Route exact path="/">
+
+            </Route>
+
             <Route exact path="/ChessEngine">
               <Options/>
             </Route>
+
             <Route path="/play">
               <Gameboard/>
             </Route>
-            <Redirect to="rocksrock18.github.io/ChessEngine" />
+
+            <Redirect to="/ChessEngine" />
+            
       </Switch>
 
       </div>
