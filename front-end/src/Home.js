@@ -34,9 +34,6 @@ class Home extends React.Component {
         </div>
 
       <Switch>
-            <Route exact path="/">
-
-            </Route>
 
             <Route exact path="/ChessEngine">
               <Options/>
@@ -47,7 +44,7 @@ class Home extends React.Component {
             </Route>
 
             <Redirect to="/ChessEngine" />
-            
+
       </Switch>
 
       </div>
