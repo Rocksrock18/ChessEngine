@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/ChessEngine/static/js/runtime~main.556f6a0c.js"
   },
   {
-    "revision": "af38eb4cff149fe3fb35",
-    "url": "/ChessEngine/static/js/main.5733f7bb.chunk.js"
+    "revision": "d1322f1961e22176f0ad",
+    "url": "/ChessEngine/static/js/main.6cb4acb7.chunk.js"
   },
   {
     "revision": "9ab7911c5a9676f03220",
     "url": "/ChessEngine/static/js/2.98da6600.chunk.js"
   },
   {
-    "revision": "af38eb4cff149fe3fb35",
+    "revision": "d1322f1961e22176f0ad",
     "url": "/ChessEngine/static/css/main.14384f2a.chunk.css"
   },
   {
-    "revision": "cf413f1f2693d57d17b99e6d3d750ece",
+    "revision": "827e2d8750f531dae35f7d3316d7df5f",
     "url": "/ChessEngine/index.html"
   }
 ];
