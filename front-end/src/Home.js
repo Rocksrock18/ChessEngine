@@ -44,7 +44,7 @@ class Home extends React.Component {
               <Gameboard/>
             </Route>
 
-            <Redirect to="/ChessEngine" />
+            {/* <Redirect to="/ChessEngine" /> */}
 
       </Switch>
 
