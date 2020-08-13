@@ -33,7 +33,7 @@ class Gameboard extends React.Component {
       turn = "b";
       $.ajax({
         type: 'GET',   
-        url: 'http://chess-engine.azurewebsites.net/api/values?fen=' + game.fen(),
+        url: 'https://chess-engine.azurewebsites.net/api/values?fen=' + game.fen(),
         dataType: 'text',
         success: 
         (data) => {
@@ -109,7 +109,7 @@ class Gameboard extends React.Component {
 
       $.ajax({
         type: 'GET',   
-        url: 'http://chess-engine.azurewebsites.net/api/values?fen=' + game.fen(),
+        url: 'https://chess-engine.azurewebsites.net/api/values?fen=' + game.fen(),
         dataType: 'text',
         success: 
         (data) => {
