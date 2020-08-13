@@ -39,6 +39,7 @@ class Home extends React.Component {
             </Route>
 
             <Route path="/ChessEngine/play">
+              {console.log("ggggggg")}
               <Gameboard/>
             </Route>
 
