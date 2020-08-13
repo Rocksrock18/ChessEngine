@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
 import Gameboard from './Gameboard';
-import Particles from 'react-particles-js';
+//import Particles from 'react-particles-js';
 import Options from './Options';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ class Home extends React.Component {
       <div className="home-layout">
 
         <div className="background">
-          <Particles
+          {/* <Particles
             params={{
               "particles": {
                 "number": {
@@ -29,7 +29,7 @@ class Home extends React.Component {
                 }
               }
             }}
-          />
+          /> */}
         </div>
 
       <Switch>
