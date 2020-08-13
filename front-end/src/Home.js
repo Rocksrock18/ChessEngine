@@ -1,18 +1,19 @@
 import React from 'react';
 import './Home.css';
 import Gameboard from './Gameboard';
-import Particles from 'react-particles-js';
+// import Particles from 'react-particles-js';
 import Options from './Options';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 class Home extends React.Component {
 
   render() {
     return (
+      <Router>
       <div className="home-layout">
 
         <div className="background">
-          <Particles
+          {/* <Particles
             params={{
               "particles": {
                 "number": {
@@ -29,16 +30,21 @@ class Home extends React.Component {
                 }
               }
             }}
-          />
+          /> */}
         </div>
 
       <Switch>
-            <Route exact path="rocksrock18.github.io/chessengine/"  component={Options} />
-            <Route path="rocksrock18.github.io/chessengine/play" component={Gameboard} />
-            <Redirect to="rocksrock18.github.io/chessengine/" />
+            <Route exact path="/">
+              <Options/>
+            </Route>
+            <Route path="/play">
+              <Gameboard/>
+            </Route>
+            {/* <Redirect to="rocksrock18.github.io/chessengine/" /> */}
       </Switch>
 
       </div>
+      </Router>
     );
   }
 }
