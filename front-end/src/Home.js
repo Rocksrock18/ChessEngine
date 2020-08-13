@@ -3,13 +3,12 @@ import './Home.css';
 import Gameboard from './Gameboard';
 // import Particles from 'react-particles-js';
 import Options from './Options';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 class Home extends React.Component {
 
   render() {
     return (
-      <Router>
       <div className="home-layout">
 
         <div className="background">
@@ -43,12 +42,11 @@ class Home extends React.Component {
               <Gameboard/>
             </Route>
 
-            {/* <Redirect to="/ChessEngine" /> */}
+            <Redirect to="/ChessEngine" />
 
       </Switch>
 
       </div>
-      </Router>
     );
   }
 }
