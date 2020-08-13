@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/ChessEngine/precache-manifest.42a0a10864fbcaf301003b94d2c1eb0e.js"
+  "/ChessEngine/precache-manifest.e6e42dfc07a1e9388c187fe8fa56c718.js"
 );
 
 workbox.clientsClaim();
