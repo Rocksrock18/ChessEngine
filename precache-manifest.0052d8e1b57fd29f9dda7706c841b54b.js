@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/ChessEngine/static/css/main.14384f2a.chunk.css"
   },
   {
-    "revision": "1e4522632c12ad9d7c9882cddedc7ab7",
+    "revision": "6eafb23dc7fdf373d62e1b17fd0e8a56",
     "url": "/ChessEngine/index.html"
   }
 ];
