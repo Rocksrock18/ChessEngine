@@ -1,13 +1,13 @@
 {
   "main.css": "/ChessEngine/static/css/main.14384f2a.chunk.css",
-  "main.js": "/ChessEngine/static/js/main.dd636689.chunk.js",
-  "main.js.map": "/ChessEngine/static/js/main.dd636689.chunk.js.map",
+  "main.js": "/ChessEngine/static/js/main.491547b0.chunk.js",
+  "main.js.map": "/ChessEngine/static/js/main.491547b0.chunk.js.map",
   "runtime~main.js": "/ChessEngine/static/js/runtime~main.556f6a0c.js",
   "runtime~main.js.map": "/ChessEngine/static/js/runtime~main.556f6a0c.js.map",
-  "static/js/2.3e74fbed.chunk.js": "/ChessEngine/static/js/2.3e74fbed.chunk.js",
-  "static/js/2.3e74fbed.chunk.js.map": "/ChessEngine/static/js/2.3e74fbed.chunk.js.map",
+  "static/js/2.98da6600.chunk.js": "/ChessEngine/static/js/2.98da6600.chunk.js",
+  "static/js/2.98da6600.chunk.js.map": "/ChessEngine/static/js/2.98da6600.chunk.js.map",
   "index.html": "/ChessEngine/index.html",
-  "precache-manifest.ae209cb60b4342aaa2d0002bb2ea8d40.js": "/ChessEngine/precache-manifest.ae209cb60b4342aaa2d0002bb2ea8d40.js",
+  "precache-manifest.dd7906ff09af710c5c625d41375b5aa8.js": "/ChessEngine/precache-manifest.dd7906ff09af710c5c625d41375b5aa8.js",
   "service-worker.js": "/ChessEngine/service-worker.js",
   "static/css/main.14384f2a.chunk.css.map": "/ChessEngine/static/css/main.14384f2a.chunk.css.map",
   "static/media/Home.css": "/ChessEngine/static/media/gotham-medium.1c769a17.woff"
