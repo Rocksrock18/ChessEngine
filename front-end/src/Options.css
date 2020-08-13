@@ -1,0 +1,74 @@
+.welcome-box {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.welcome-header {
+  position: relative;
+  color: white;
+  font-size: 65px;
+  font-weight: bold;
+}
+
+.select-box {
+  margin-top: 4%;
+  text-align: center;
+}
+
+.select-header {
+  min-height: 100vh;
+  color: white;
+  font-size: 40px;
+  border-bottom: 2px solid white;
+  
+}
+
+.difficulty-box {
+  width: 80%;
+  height: 55%;
+  margin-top: 4%;
+  padding-left: 5%;
+  padding-right: 10%;
+}
+
+ul.difficulty-list1 {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+ul.difficulty-list2 {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 5%;
+  
+}
+
+li.difficulty-entry {
+  display: table-cell;
+  text-align: center;
+  list-style-type: none;
+  float: left;
+  margin-right: 20%;
+}
+
+button.difficulty-name {
+  width: 250%;
+  padding-top: 30%;
+  padding-bottom: 30%;
+  background: radial-gradient(circle, #11c7ff 0%, rgb(63, 242, 255) 0%, rgba(0,212,255,1) 50%);
+  border: none;
+  border-radius: 25px;
+}
+
+button.difficulty-name:hover{
+  cursor: pointer;
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, #6666c0 0%, hsl(223, 100%, 70%) 0%, rgba(0,212,255,1) 100%);
+}
+
+button.difficulty-name span{
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+}
