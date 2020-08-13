@@ -1,4 +1,4 @@
-﻿using HtmlAgilityPack;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -95,7 +95,7 @@ namespace ChessEngine
             {
                 DBR = AddPositionB(key);
             }
-            UpdateMate(score);
+            CheckForMate();
             return bestMove;
         }
 
@@ -652,20 +652,12 @@ namespace ChessEngine
             var htmlDoc = web.Load(html);
             var node = htmlDoc.DocumentNode.SelectSingleNode("//body/div[@class='right-side']/div/section");
 
-            //Console.WriteLine("Node Name: " + node.Name + "\n" + node.OuterHtml);
-
             string moves = node.OuterHtml;
             string search = "data-uci=\"";
 
             moves = moves.Substring(moves.IndexOf(search) + search.Length);
-            //Console.WriteLine(moves);
 
-            string move = moves.Substring(0, 5);
-            if (move[4] == '"')
-            {
-                move = move.Substring(0, 4);
-            }
-            //Console.WriteLine(move);
+            string move = moves.Substring(0, 4);
 
             return move;
         }
