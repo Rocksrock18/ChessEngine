@@ -40,7 +40,7 @@ class Home extends React.Component {
             <Route path="/ChessEngine/play">
               <Gameboard/>
             </Route>
-            {/* <Redirect to="rocksrock18.github.io/chessengine/" /> */}
+            <Redirect to="rocksrock18.github.io/ChessEngine" />
       </Switch>
 
       </div>

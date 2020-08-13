@@ -32,7 +32,7 @@ class Options extends React.Component {
                                     <button className="difficulty-name"
                                         entry={entry.trim()}
                                         onClick={() => {
-                                            var url = "/play/" + (index === 1 ? "white/" : "black/");
+                                            var url = "/ChessEngine/play/" + (index === 1 ? "white/" : "black/");
                                             console.log(index);
                                             window.open(url, "_self")
                                         }}
