@@ -38,7 +38,7 @@ class Home extends React.Component {
               <Options/>
             </Route>
 
-            <Route path="/ChessEngine/play/">
+            <Route path="/ChessEngine/play">
               <Gameboard/>
             </Route>
 
