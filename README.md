@@ -1,9 +1,10 @@
-# ACTIVE SITE: https://chessengine-play.herokuapp.com/
+# Chess Engine
 
-## Link to FrontEnd: https://github.com/arnoldmak12/FrontEnd-ChessEngine
+A chess engine that you can play against.
+## Resources
 
-## Chess Engine
-A Chess Game.
+Active site: https://chessengine-play.herokuapp.com/
+Updated front-end code: https://github.com/arnoldmak12/FrontEnd-ChessEngine
 
 ## Built With
 * React
