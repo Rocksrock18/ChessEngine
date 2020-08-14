@@ -105,14 +105,14 @@ namespace ChessEngine
             //32 pieces, potential for 16 promotions
             PieceLocations = new int[48];
             int index = 21;
-            for(int j = 0; j < 32; j++)
+            for (int j = 0; j < 32; j++)
             {
-                if(index == 41)
+                if (index == 41)
                 {
                     index += 40;
                 }
                 PieceLocations[j] = index;
-                if(index % 10 == 8)
+                if (index % 10 == 8)
                 {
                     index += 3;
                 }
@@ -120,9 +120,9 @@ namespace ChessEngine
                 {
                     index++;
                 }
-                
+
             }
-            for(int k = 32; k < 48; k++)
+            for (int k = 32; k < 48; k++)
             {
                 PieceLocations[k] = 0;
             }
@@ -143,7 +143,7 @@ namespace ChessEngine
             EnPassantHistory.Push(0);
 
             NumKingRookMoves = new int[6];
-            for(int k = 0; k < 6; k++)
+            for (int k = 0; k < 6; k++)
             {
                 NumKingRookMoves[k] = 0;
             }
@@ -160,7 +160,7 @@ namespace ChessEngine
             key = z.Hash(this);
 
             endGame = false;
-    }
+        }
 
         public BoardData(String fen)
         {
@@ -276,7 +276,7 @@ namespace ChessEngine
                     else if (fen[(r * 8) + c] == 'q')
                     {
                         Board[count + c] = (int)BLACK_QUEEN;
-                        if(!black_queen_found)
+                        if (!black_queen_found)
                         {
                             PieceLocations[27] = count + c;
                             black_queen_found = true;
@@ -306,7 +306,7 @@ namespace ChessEngine
 
             WhiteTurn = (fen.IndexOf('w') != -1);
 
-            if(WhiteTurn)
+            if (WhiteTurn)
             {
                 InCheck = MoveGen.InCheck(Board, PieceLocations[4], true);
             }
@@ -316,7 +316,7 @@ namespace ChessEngine
             }
             PrevMoveCheck = new Stack<bool>();
             PrevMoveCheck.Push(InCheck);
-            
+
 
             if (fen.Substring(fen.Length - 6).IndexOf('-') != -1)
             {
@@ -405,7 +405,7 @@ namespace ChessEngine
                 if (i % 10 == 9)
                 {
                     i -= 18;
-                    if(numZeros > 0)
+                    if (numZeros > 0)
                     {
                         fen = fen + numZeros;
                         numZeros = 0;
@@ -413,12 +413,12 @@ namespace ChessEngine
                     fen = fen + "/";
                 }
                 int piece = Board[i];
-                if(piece == 0)
+                if (piece == 0)
                 {
                     numZeros++;
                     continue;
                 }
-                if(numZeros > 0)
+                if (numZeros > 0)
                 {
                     fen = fen + numZeros;
                     numZeros = 0;
@@ -435,7 +435,7 @@ namespace ChessEngine
 
         private string ConvertNumToPiece(int num)
         {
-            switch(num)
+            switch (num)
             {
                 case 11:
                     return "P";
@@ -474,7 +474,7 @@ namespace ChessEngine
                 {
                     i += 2;
                 }
-                if(Board[i] != 0)
+                if (Board[i] != 0)
                 {
                     numPieces++;
                 }
@@ -486,7 +486,7 @@ namespace ChessEngine
         {
             if (NumKingRookMoves[2] == 0)
             {
-                if(PieceLocations[7] != 28)
+                if (PieceLocations[7] != 28)
                 {
                     int oldLoc = PieceLocations[7];
                     PieceLocations[7] = PieceLocations[0];
@@ -529,14 +529,14 @@ namespace ChessEngine
         {
             int index = 91;
             Console.WriteLine("  +---+---+---+---+---+---+---+---+");
-            while(index > 20)
+            while (index > 20)
             {
                 if (index % 10 == 1)
                 {
-                    Console.Write((index-10) / 10 + " |");
+                    Console.Write((index - 10) / 10 + " |");
                 }
                 int piece = Board[index];
-                if(piece == 0)
+                if (piece == 0)
                 {
                     Console.Write("   |");
                 }
@@ -544,7 +544,7 @@ namespace ChessEngine
                 {
                     Console.Write(" " + Enum.GetName(typeof(Conversion.BoardRep), piece) + " |");
                 }
-                if(index%10 == 8)
+                if (index % 10 == 8)
                 {
                     index -= 17;
                     Console.WriteLine();
@@ -572,7 +572,7 @@ namespace ChessEngine
                     return 0;
                 }
                 //denotes an enpassant capture
-                else if(move >= 100000)
+                else if (move >= 100000)
                 {
                     return HandleEnPassant(move);
                 }
@@ -594,7 +594,7 @@ namespace ChessEngine
 
         public void ReverseMove(int move, int captured)
         {
-            if(move != -3)
+            if (move != -3)
             {
                 MoveHistory.Pop();
                 //flags for castling. -10 = WKC, -11 = WQC, -20 = BKC, -21 = BQC
@@ -635,7 +635,7 @@ namespace ChessEngine
                 PieceLocations[PrevIndexPromotion.Pop()] = afterSquare;
                 numPromotions--;
                 PieceLocations[32 + numPromotions] = 0;
-                if(WhiteTurn)
+                if (WhiteTurn)
                 {
                     Board[afterSquare] = (int)BLACK_PAWN;
                 }
@@ -731,7 +731,7 @@ namespace ChessEngine
                 key = z.ReverseUpdateHash(key, afterSquare, beforeSquare, captured, piece);
             }
 
-            VerifyBoard();
+            //VerifyBoard();
         }
 
         private void UpdateBoardData(int beforeSquare, int afterSquare, int piece, int captured)
@@ -746,7 +746,7 @@ namespace ChessEngine
                 promotion = true;
                 for (int i = 8; i < 16; i++)
                 {
-                    if(PieceLocations[i] == beforeSquare)
+                    if (PieceLocations[i] == beforeSquare)
                     {
                         PrevIndexPromotion.Push(i);
                         PieceLocations[32 + numPromotions] = afterSquare;
@@ -810,7 +810,7 @@ namespace ChessEngine
             //update piece location of moving piece
             for (int i = 0; i < 48; i++)
             {
-                if(PieceLocations[i] == beforeSquare)
+                if (PieceLocations[i] == beforeSquare)
                 {
                     PieceLocations[i] = afterSquare;
                     //handles castling
@@ -863,8 +863,8 @@ namespace ChessEngine
             {
                 key = z.UpdateHash(key, afterSquare, beforeSquare, captured, piece);
             }
-            
-            VerifyBoard();
+
+            //VerifyBoard();
         }
 
         private static int EnpassantSquare(int beforeSquare, int afterSquare, int piece)
@@ -881,7 +881,7 @@ namespace ChessEngine
 
         private void HandleCastleMove(int move)
         {
-            if(move == -10)
+            if (move == -10)
             {
                 WKCastle = false;
                 WQCastle = false;
@@ -896,7 +896,7 @@ namespace ChessEngine
                 NumKingRookMoves[1] = NumKingRookMoves[1] + 1;
                 NumKingRookMoves[2] = NumKingRookMoves[2] + 1;
             }
-            else if(move == -11)
+            else if (move == -11)
             {
                 WQCastle = false;
                 WKCastle = false;
@@ -961,7 +961,7 @@ namespace ChessEngine
 
             key = z.Hash(this);
 
-            VerifyBoard();
+            //VerifyBoard();
         }
 
         private void HandleReverseCastleMove(int move)
@@ -1034,7 +1034,7 @@ namespace ChessEngine
 
             key = z.Hash(this);
 
-            VerifyBoard();
+            //VerifyBoard();
         }
 
         private int HandleEnPassant(int move)
@@ -1044,7 +1044,7 @@ namespace ChessEngine
 
             //update Board
             Board[move % 100] = Board[move / 100];
-            Board[move/100] = 0;
+            Board[move / 100] = 0;
             PrevMovePromotion.Push(false);
 
             int captured = 0;
@@ -1085,7 +1085,7 @@ namespace ChessEngine
                     break;
                 }
             }
-            
+
             Enpassant = 0;
             EnPassantHistory.Push(Enpassant);
 
@@ -1099,7 +1099,7 @@ namespace ChessEngine
 
             key = z.Hash(this);
 
-            VerifyBoard();
+            //VerifyBoard();
 
             return captured;
         }
@@ -1158,7 +1158,7 @@ namespace ChessEngine
 
             key = z.Hash(this);
 
-            VerifyBoard();
+            //VerifyBoard();
         }
 
         public void UpdateEnd()
@@ -1182,7 +1182,7 @@ namespace ChessEngine
         public void UpdateCheckEnPassant(int beforeSquare, int afterSquare, int capturedSquare, int piece)
         {
             UpdateCheck(beforeSquare, afterSquare, piece);
-            if(!InCheck)
+            if (!InCheck)
             {
                 UpdateCheck(capturedSquare, afterSquare, piece);
             }
@@ -1193,13 +1193,13 @@ namespace ChessEngine
         {
             int ray;
             int kingpos;
-            if(WhiteTurn)
+            if (WhiteTurn)
             {
                 kingpos = PieceLocations[28];
                 ray = MoveGen.FindRayDirection(kingpos, afterSquare);
-                InCheck = (ray == 0 ? CanAttackB(Board[afterSquare]%10, afterSquare - kingpos, 0) : BlackUnderAttack(kingpos, ray));
+                InCheck = (ray == 0 ? CanAttackB(Board[afterSquare] % 10, afterSquare - kingpos, 0) : BlackUnderAttack(kingpos, ray));
                 //look for discovered check
-                if(!InCheck)
+                if (!InCheck)
                 {
                     ray = MoveGen.FindRayDirection(kingpos, beforeSquare);
                     InCheck = (ray == 0 ? false : BlackUnderAttack(kingpos, ray));
@@ -1209,7 +1209,7 @@ namespace ChessEngine
             {
                 kingpos = PieceLocations[4];
                 ray = MoveGen.FindRayDirection(kingpos, afterSquare);
-                InCheck = (ray == 0 ? CanAttackW(Board[afterSquare]%10, afterSquare - kingpos, 0) : WhiteUnderAttack(kingpos, ray));
+                InCheck = (ray == 0 ? CanAttackW(Board[afterSquare] % 10, afterSquare - kingpos, 0) : WhiteUnderAttack(kingpos, ray));
                 //look for discovered check
                 if (!InCheck)
                 {
@@ -1227,7 +1227,7 @@ namespace ChessEngine
             {
                 loc -= ray;
                 piece = Board[loc];
-                if(piece != 0)
+                if (piece != 0)
                 {
                     if (piece == -1 || (piece > 10 && piece < 20))
                     {
@@ -1247,7 +1247,7 @@ namespace ChessEngine
             {
                 loc -= ray;
                 piece = Board[loc];
-                if(piece != 0)
+                if (piece != 0)
                 {
                     if (piece == -1 || piece > 20)
                     {
@@ -1314,9 +1314,9 @@ namespace ChessEngine
         //debugger methods
         private void VerifyBoard()
         {
-            if(WhiteTurn)
+            if (WhiteTurn)
             {
-                if(PieceLocations[4] == 0)
+                if (PieceLocations[4] == 0)
                 {
                     //broken
                     Console.WriteLine("Board Broke at node: " + MoveGen.numNodes);
@@ -1324,7 +1324,7 @@ namespace ChessEngine
                     DisplayBoard();
                     Console.ReadKey();
                 }
-                if(InCheck != MoveGen.InCheck(Board, PieceLocations[4], true))
+                if (InCheck != MoveGen.InCheck(Board, PieceLocations[4], true))
                 {
                     //broken
                     Console.WriteLine("Board Broke at node: " + MoveGen.numNodes);
@@ -1353,7 +1353,7 @@ namespace ChessEngine
                 }
             }
             ulong properKey = z.Hash(this);
-            if(properKey != key)
+            if (properKey != key)
             {
                 //broken
                 Console.WriteLine("Board Broke at node: " + MoveGen.numNodes);
@@ -1362,11 +1362,11 @@ namespace ChessEngine
                 Console.ReadKey();
             }
             HashSet<int> occupiedSquares = new HashSet<int>();
-            for(int i = 0; i < 32+numPromotions; i++)
+            for (int i = 0; i < 32 + numPromotions; i++)
             {
-                if(PieceLocations[i] != 0)
+                if (PieceLocations[i] != 0)
                 {
-                    if(occupiedSquares.Contains(PieceLocations[i]))
+                    if (occupiedSquares.Contains(PieceLocations[i]))
                     {
                         //broken
                         Console.WriteLine("Board Broke at node: " + MoveGen.numNodes);
@@ -1382,12 +1382,12 @@ namespace ChessEngine
             }
             for (int i = 21; i < 99; i++)
             {
-                if(i%10 == 9)
+                if (i % 10 == 9)
                 {
                     i += 2;
                 }
                 int piece = Board[i];
-                if(piece != 0)
+                if (piece != 0)
                 {
                     VerifyPiece(piece, i);
                 }
@@ -1399,7 +1399,7 @@ namespace ChessEngine
             switch (piece)
             {
                 case 11:
-                    if(PieceLocations[8] == square || PieceLocations[9] == square || PieceLocations[10] == square || PieceLocations[11] == square ||
+                    if (PieceLocations[8] == square || PieceLocations[9] == square || PieceLocations[10] == square || PieceLocations[11] == square ||
                        PieceLocations[12] == square || PieceLocations[13] == square || PieceLocations[14] == square || PieceLocations[15] == square)
                     {
                         //valid
@@ -1461,7 +1461,7 @@ namespace ChessEngine
                     break;
                 case 15:
                     bool isPromotedPiece = false;
-                    for (int i = 32; i < 32+numPromotions; i++)
+                    for (int i = 32; i < 32 + numPromotions; i++)
                     {
                         if (PieceLocations[i] == square)
                         {
