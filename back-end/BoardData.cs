@@ -167,7 +167,6 @@ namespace ChessEngine
         {
             Board = new int[120];
             fen = fen.Replace("/", "");
-            Debug.WriteLine(fen);
 
             for (int i = 0; i < Board.Length; i++)
             {
@@ -320,8 +319,6 @@ namespace ChessEngine
             PrevMoveCheck.Push(InCheck);
 
             fen = ConcatFen(fen);
-            Debug.WriteLine(fen);
-            Debug.WriteLine(fen.Substring(fen.Length - 6));
             if (fen.Substring(fen.Length - 1).IndexOf('-') != -1)
             {
                 Enpassant = 0;
