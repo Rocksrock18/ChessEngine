@@ -3,8 +3,8 @@
 A chess engine that you can play against.
 ## Resources
 
-Active site: https://chessengine-play.herokuapp.com/
-Updated front-end code: https://github.com/arnoldmak12/FrontEnd-ChessEngine
+* Active site: https://chessengine-play.herokuapp.com/
+* Updated front-end code: https://github.com/arnoldmak12/FrontEnd-ChessEngine
 
 ## Built With
 * React
