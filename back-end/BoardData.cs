@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using static ChessEngine.Conversion.Pieces;
 using static ChessEngine.Conversion.Squares;
@@ -166,6 +167,7 @@ namespace ChessEngine
         {
             Board = new int[120];
             fen = fen.Replace("/", "");
+            Debug.WriteLine(fen);
 
             for (int i = 0; i < Board.Length; i++)
             {
@@ -316,16 +318,18 @@ namespace ChessEngine
             }
             PrevMoveCheck = new Stack<bool>();
             PrevMoveCheck.Push(InCheck);
-            
 
-            if (fen.Substring(fen.Length - 6).IndexOf('-') != -1)
+            fen = ConcatFen(fen);
+            Debug.WriteLine(fen);
+            Debug.WriteLine(fen.Substring(fen.Length - 6));
+            if (fen.Substring(fen.Length - 1).IndexOf('-') != -1)
             {
                 Enpassant = 0;
             }
             else
             {
-                String letter = fen.Substring(fen.Length - 6, 1);
-                String number = fen.Substring(fen.Length - 5, 1);
+                String letter = fen.Substring(fen.Length - 2, 1);
+                String number = fen.Substring(fen.Length - 1, 1);
 
                 Enpassant = 10 * (1 + Int32.Parse(number));
 
@@ -365,10 +369,10 @@ namespace ChessEngine
             EnPassantHistory = new Stack<int>();
             EnPassantHistory.Push(Enpassant);
 
-            WKCastle = (fen.Substring(fen.Length - 11).IndexOf('K') != -1);
-            WQCastle = (fen.Substring(fen.Length - 11).IndexOf('Q') != -1);
-            BKCastle = (fen.Substring(fen.Length - 11).IndexOf('k') != -1);
-            BQCastle = (fen.Substring(fen.Length - 11).IndexOf('q') != -1);
+            WKCastle = (fen.Substring(fen.Length - 6).IndexOf('K') != -1);
+            WQCastle = (fen.Substring(fen.Length - 6).IndexOf('Q') != -1);
+            BKCastle = (fen.Substring(fen.Length - 6).IndexOf('k') != -1);
+            BQCastle = (fen.Substring(fen.Length - 6).IndexOf('q') != -1);
 
             NumKingRookMoves = new int[6];
 
@@ -394,6 +398,24 @@ namespace ChessEngine
             key = z.Hash(this);
 
             UpdateEnd();
+        }
+
+        private string ConcatFen(string oldFen)
+        {
+            string fen = oldFen;
+            int numSpaces = 0;
+            int extraChars = 0;
+            while(numSpaces < 2)
+            {
+                extraChars++;
+                string s = fen.Substring(fen.Length - extraChars, 1);
+                if(s.Equals(" "))
+                {
+                    numSpaces++;
+                }
+            }
+            fen = fen.Substring(0, fen.Length - extraChars);
+            return fen;
         }
 
         public string GetFen()
