@@ -12,7 +12,7 @@ A Chess Game.
 * Deployed BackEnd to Azure
 
 ## Authors
-* Jasen Lai - The Ohio State University
-* Arnold Makarov - The Ohio State University
-* Jacob Maxson - The Ohio State University
+* [Jasen Lai](https://www.linkedin.com/in/jasenlai/) - The Ohio State University
+* [Arnold Makarov](https://www.linkedin.com/in/arnoldmakarov/) - The Ohio State University
+* [Jacob Maxson](https://www.linkedin.com/in/jacob-maxson-63869018a/) - The Ohio State University
 * Jaewook Lee - The Ohio State University
