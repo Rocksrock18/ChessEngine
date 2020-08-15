@@ -16,15 +16,23 @@ A chess engine that you can play against.
 - [Authors](#authors)
 ## How It Works
 
-#### Minimax
+The engine aims to determine the best move from a given chess position.
+### Minimax
 
-The engine aims to determine the best move from a given chess position. 
+ 
 
 ## Built With
 * React
 * C#
 * Deployed FrontEnd to Heroku
 * Deployed BackEnd to Azure
+
+## Further Reading
+
+- [Minimax algorithm](https://www.baeldung.com/java-minimax-algorithm)
+- [Evaluating a chess position](https://www.chessprogramming.org/Evaluation)
+- [Zobrist hashing](https://iq.opengenus.org/zobrist-hashing-game-theory/)
+- [General chess programming info](https://www.chessprogramming.org/Main_Page)
 
 ## Authors
 * [Jasen Lai](https://www.linkedin.com/in/jasenlai/) - The Ohio State University
