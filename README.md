@@ -34,18 +34,18 @@ The way we calculate this is done with the **minimax algorithm.**
 
 The minimax algorithm helps dictate which path is the best one to take from a given node in the tree.
 
-### Pruning
+#### Pruning
  
 Chess is a complicated game, with an average of around 35 possible moves for a given position. 
 * At a depth of 6, the tree of possible game states would have a staggering **1,838,265,625** nodes.
 
 In order to greatly reduce the number of nodes we have to look through, we can determine which branches do not need to be searched, effectively *pruning* them from the tree. There are many different ways we can decide to skip a branch.
  
-### Alpha Beta Pruning
+#### Alpha Beta Pruning
  
 The most common type of pruning is alpha beta pruning.
 
-### Null Move Pruning
+#### Null Move Pruning
 
 In most chess positions, doing something is better than doing nothing at all. That is, if it were possible to "pass" your turn to your opponent, chances are you had a better move available. This is where the idea of null move pruning comes in:
 * We pass on a turn (perform a *null move*) and search the tree to a limited depth. 
@@ -58,7 +58,7 @@ Certain conditions need to be met before performing a null move:
 
 *Zugzswang* is a term that refers to chess positions where the best option would be to pass your turn to the opponent. **This contradicts our assumption** made for null move pruning. Since these positions are more common in the end game, null move pruning is disabled there.
 
-### Move Heuristics
+#### Move Heuristics
 
 The effectiveness of alpha beta pruning can be greatly enhanced by the order in which moves are checked. The sooner the best move is found, the sooner a cutoff will be produced, and the more work we can avoid.
 
