@@ -84,7 +84,7 @@ Now lets assume the computer has just finished evaluating the left side of the t
 
 The minimizer will check left first, and see it results in a score of 2. At this point, the minimizer is **guarenteed** to get a score of at most 2, so beta is 2.
 
-Because alpha > beta, an **alpha beta cutoff** has been found. We can stop evaluation without the minimizer ever checking the right path, and the result of the tree is the same.
+Because alpha > beta, an **alpha beta cutoff** has been found, and we know that the left branch will be better for the maximizer than the right branch. We can stop evaluation without the minimizer ever checking the other paths, and the result of the tree will be the same.
 
 #### Null Move Pruning
 
