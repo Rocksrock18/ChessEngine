@@ -11,15 +11,29 @@ A chess engine that you can play against.
 
 - [How it Works](#how-it-works)
     - [Minimax](#minimax)
+            - [Pruning](#pruning)
+                    - [Alpha-beta pruning](#alpha-beta-pruning)
+                    - [Null move pruning](#null-move-pruning)
+                    - [Move heuristics](#move-heuristics)
+    - [Quiescence Search](#quiescence-search)
+    - [Transposition Tables](#transposition-tables)
+            - [Hashing](#hashing)
+            - [Principal Variation](#principal-variation)
+    - [Evaluation](#evaluation)
 - [Built With](#built-with)
 - [Further Reading](#further-reading)
 - [Authors](#authors)
 ## How It Works
 
 The engine aims to determine the best move from a given chess position.
+
 ### Minimax
 
+ The minimax algorithm helps dictate which path is the best one to take from a given node in the tree.
  
+ #### Pruning
+ 
+ Chess is a complicated game, with
 
 ## Built With
 * React
