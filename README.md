@@ -33,7 +33,25 @@ The way we calculate this is done with the **minimax algorithm.**
 
 ### Minimax
 
-The minimax algorithm helps dictate which path is the best one to take from a given node in the tree.
+Minimax is a backtracking algorithm that helps dictate which path is optimal from a given node in the tree, assuming your opponent also plays optimally.
+
+Each node in the tree represents a position, which can be given a *score*. One player is a **maximizer**, who tries to get the highest score possible. The other is the **minimizer**, who aims to get the lowest. Because chess is a turn based game, the levels of the tree alternate between maximizing and minimizing the score.
+
+We can determine which path is optimal by starting at the base of the tree and **working our way up**. Consider the following example:
+
+<img src="images/Tree1.PNG" width="300" height="300">
+
+* If the maximizer goes left, the minimizer can choose a 3 or a 5. They would choose 3, so going left results in a score of 3.
+
+* If the maximizer goes right, the minimizer can choose a 2 or 9. They would choose 2, so going right results in a score of 2.
+
+With this new information, we can fill in the tree like this:
+
+<img src="images/Tree2.PNG" width="300" height="300">
+
+From here, its clear to see that the maximizer **should choose the left path**.
+
+As the tree grows in height, the number of nodes grows *exponentially*. In order to deal with this issue, we can apply methods to reduce the number of nodes we need to evaluate.
 
 #### Pruning
  
