@@ -182,8 +182,8 @@ These, as well as additional factors, are taken into account to give a numeric v
 ## Built With
 * React
 * C#
-* Deployed FrontEnd to Heroku
-* Deployed BackEnd to Azure
+* Deployed front-end to Heroku
+* Deployed back-end to Azure
 
 ## Further Reading
 
