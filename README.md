@@ -188,7 +188,7 @@ These, as well as additional factors, are taken into account to give a numeric v
 ## Further Reading
 
 - [Minimax algorithm](https://www.baeldung.com/java-minimax-algorithm)
-- [Evaluating a chess position](https://www.chessprogramming.org/Evaluation)
+- [Iterative Deepening](https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search)
 - [Zobrist hashing](https://iq.opengenus.org/zobrist-hashing-game-theory/)
 - [General chess programming info](https://www.chessprogramming.org/Main_Page)
 
