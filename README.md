@@ -64,9 +64,22 @@ The effectiveness of alpha beta pruning can be greatly enhanced by the order in 
 
 * While we cant know which move will be considered best, we can make an educated guess by ordering the moves based on certain heuristics.
 
-Capturing a piece tends to lead to a bigger change in evaluation, so these are checked first. Captures are ordered based on **MVVLVA** move ordering, which stands for Most Valuabe Victim, Least Valuable Attacker.
+Capturing a piece tends to lead to a bigger change in evaluation, so these are checked first. Captures are ordered based on *MVVLVA* move ordering, which stands for **Most Valuabe Victim, Least Valuable Attacker.**
 * Taking a piece of high value (victim) has a great chance of being the best move.
 * Taking a piece with a low value piece (attacker) tends to be a good idea, as they are likely to be captured by your opponent.
+
+### Quiescence Search
+
+Imagine a chess player looked 5 moves ahead and saw they could take one of their opponent's pawns with the queen on the final move. But by stopping at 5 moves, they missed that the pawn was defended, so their opponent could simply **recapture the queen** with another pawn.
+
+This is a common problem know as the **horizon effect**. One move can drastically change who has the advantage in a game of chess. Instead of stopping at a certain depth, it's much better to stop when the position is *quiet*, or when the evaulation is unlikely to change drastically after another move.
+
+A chess position is considered **quiet** when:
+1. There are no moves that capture a piece.
+2. There are no moves that put the king in check.
+3. There are no pawn promotions available.
+
+After the main tree hits the max depth, the branch enters a **quiescence search** where only captures, checks, and promotions are considered, ending once the position is quiet. This search has a much smaller branching factor and can reach a depth of **over 20 moves** in certain branches.
 
 ## Built With
 * React
