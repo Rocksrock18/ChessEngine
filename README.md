@@ -39,7 +39,7 @@ Each node in the tree represents a position, which can be given a *score*. One p
 
 We can determine which path is optimal by starting at the base of the tree and **working our way up**. Consider the following example:
 
-<img src="images/Tree1.PNG" width="300" height="300">
+<img src="images/Tree1.PNG" width="450" height="300">
 
 * If the maximizer goes left, the minimizer can choose a 3 or a 5. They would choose 3, so going left results in a score of 3.
 
@@ -47,7 +47,7 @@ We can determine which path is optimal by starting at the base of the tree and *
 
 With this new information, we can fill in the tree like this:
 
-<img src="images/Tree2.PNG" width="300" height="300">
+<img src="images/Tree2.PNG" width="450" height="300">
 
 From here, its clear to see that the maximizer **should choose the left path**.
 
