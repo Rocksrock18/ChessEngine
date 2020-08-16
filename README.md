@@ -56,7 +56,7 @@ Certain conditions need to be met before performing a null move:
 1. If you are currently in check, a null move would result in an illegal position. 
 2. If you are currently in the end game, a null move could give an innacurate evaluation.
 
-*Zugzswang* is a term that refers to chess positions where the best option would be to pass your turn to the opponent. **This contradicts our assumption** made for null move pruning. Since these positions are more common in the end game, null move pruning is disabled there.
+*Zugzwang* is a term that refers to chess positions where the best option would be to pass your turn to the opponent. **This contradicts our assumption** made for null move pruning. Since these positions are more common in the end game, null move pruning is disabled there.
 
 #### Move Heuristics
 
@@ -82,6 +82,19 @@ A chess position is considered **quiet** when:
 3. There are no pawn promotions available.
 
 After the main tree hits the max depth, the branch enters a **quiescence search** where only captures, checks, and promotions are considered, ending once the position is quiet. This search has a much smaller branching factor and can reach a depth of **over 20 moves** in certain branches.
+
+### Transposition Tables
+
+Consider the following move sequences:
+'''
+1. e4 e5
+2. Nf3 Nc6
+'''
+and
+'''
+1. Nf3 Nc6
+2. e4 e5
+'''
 
 ## Built With
 * React
