@@ -16,6 +16,7 @@ A chess engine that you can play against.
             - [Null move pruning](#null-move-pruning)
             - [Move heuristics](#move-heuristics)
     - [Quiescence Search](#quiescence-search)
+    - [Iterative Deepening](#iterative-deepening)
     - [Transposition Tables](#transposition-tables)
         - [Hashing](#hashing)
         - [Principal Variation](#principal-variation)
@@ -37,7 +38,7 @@ The minimax algorithm helps dictate which path is the best one to take from a gi
 #### Pruning
  
 Chess is a complicated game, with an average of around 35 possible moves for a given position. 
-* At a depth of 6, the tree of possible game states would have a staggering **1,838,265,625** nodes.
+* At a depth of 6, the tree of possible game states would have a staggering **1,838,265,625 nodes.**
 
 In order to greatly reduce the number of nodes we have to look through, we can determine which branches do not need to be searched, effectively *pruning* them from the tree. There are many different ways we can decide to skip a branch.
  
@@ -60,13 +61,15 @@ Certain conditions need to be met before performing a null move:
 
 #### Move Heuristics
 
-The effectiveness of alpha beta pruning can be greatly enhanced by the order in which moves are checked. The sooner the best move is found, the sooner a cutoff will be produced, and the more work we can avoid.
+The effectiveness of alpha beta pruning can be greatly enhanced by the order in which moves are checked. The sooner the best move is found, the sooner a cutoff will be produced, and **the more work we can avoid.**
 
-* While we cant know which move will be considered best, we can make an educated guess by ordering the moves based on certain heuristics.
+We cant know which move will be considered best, but we can make an educated guess by ordering them with a certain method, or *heuristic*.
 
 Capturing a piece tends to lead to a bigger change in evaluation, so these are checked first. Captures are ordered based on *MVVLVA* move ordering, which stands for **Most Valuabe Victim, Least Valuable Attacker.**
 * Taking a piece of high value (victim) has a great chance of being the best move.
 * Taking a piece with a low value piece (attacker) tends to be a good idea, as they are likely to be captured by your opponent.
+
+Its also a good idea to give checks and promotions higher priority. The order of the remaining moves is arbitrary.
 
 ### Quiescence Search
 
@@ -82,6 +85,14 @@ A chess position is considered **quiet** when:
 3. There are no pawn promotions available.
 
 After the main tree hits the max depth, the branch enters a **quiescence search** where only captures, checks, and promotions are considered, ending once the position is quiet. This search has a much smaller branching factor and can reach a depth of **over 20 moves** in certain branches.
+
+### Iterative Deepening
+
+Iterative deepening is a technique that searches the tree repeatedly, with increasing depths on each search.
+
+* Essentially, it combines **depth-first** search with **breadth-first** search.
+
+By searching the tree in this fashion, the information stored in **transposition tables** gets used and is updated much more frequently, which means we have less work to do overall.
 
 ### Transposition Tables
 
@@ -99,6 +110,35 @@ While the order of moves is different, both lead to the same position:
 This is called a **transposition.** 
 
 When performing a move search, transpositions are quite common. By storing the evaluation results of the positions we encounter in a **transposition table**, we can just use the stored result instead of doing the work all over again.
+
+#### Hashing
+
+In order to store results for a given chess position, we need to figure out a way to uniquely identify it. And since we will be doing this at **every node in the tree**, we need a way to do it fast.
+
+*Zobrist hashing* is a **tabulation hashing** method that aims to assign each position a unique bitstring. Once generated, the hash can easily be updated with only 4 bitwise XOR operations, making it extremely quick to update and get for a given chess position.
+
+#### Principal Variation
+
+We can also keep track of which move was determined to be the best in a previous search, or the **principal variation**. This move will be checked first.
+
+* If a move was considered best in a *previous* search, there's a good chance it will be considered best in this one.
+
+These can be stored in a separate transposition table.
+
+### Evaluation
+
+In order to choose what positions are favorable, we need a way to accurately *evaluate* a given chess position. **How a position is evaluated dictates the behavior of the AI**.
+
+There are many factors that influence who has the advantage, including:
+
+1. General piece values
+2. King safety
+3. Piece position
+4. Pawn structure
+5. Spacing/Mobility
+
+These, as well as additional factors, are taken into account to give a numeric value, or *score*, representing which side has the advantage. A positive score is favorable for white, while a negative score is favorable for black.
+
 ## Built With
 * React
 * C#
