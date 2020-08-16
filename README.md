@@ -93,7 +93,7 @@ Consider the following move sequences:
 1. Nf3 Nc6 2. e4 e5
 ```
 While the order of moves is different, both lead to the same position:
-<img src="images/ExampleChessPosition.PNG" width="100" height="100">
+<img src="images/ExampleChessPosition.PNG" width="300" height="300">
 
 This is called a **transposition.** 
 
