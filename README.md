@@ -72,9 +72,9 @@ Capturing a piece tends to lead to a bigger change in evaluation, so these are c
 
 Imagine a chess player looked 5 moves ahead and saw they could take one of their opponent's pawns with the queen on the final move. They think this is a great variation for them, since they've won a pawn.
 
-But by stopping at 5 moves, they missed that the pawn was defended, so their opponent could simply **recapture the queen** with another pawn. What was thought to be winning material actually turned out to be a catastrophic blunder.
+But by stopping at 5 moves, they missed that the pawn was defended, so their opponent could simply **recapture the queen** with another pawn. What was thought to be winning material actually turned out to be **a catastrophic blunder.**
 
-This is a common problem know as the **horizon effect**. One move can drastically change who has the advantage in a game of chess. Instead of stopping at a certain depth, it's much better to stop when the position is *quiet*, or when the evaulation is unlikely to change drastically after another move.
+This is a common problem known as the **horizon effect**. One move can drastically change who has the advantage in a game of chess. Instead of stopping at a certain depth, it's much better to stop when the position is *quiet*, or when the evaulation is unlikely to change drastically after another move.
 
 A chess position is considered **quiet** when:
 1. There are no moves that capture a piece.
