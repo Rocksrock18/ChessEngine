@@ -1,6 +1,6 @@
 # Chess Engine
 
-Play against jimmy, the chess AI!
+Play against jimmy, a chess AI!
 
 ## Resources
 
