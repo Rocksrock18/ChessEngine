@@ -86,16 +86,18 @@ After the main tree hits the max depth, the branch enters a **quiescence search*
 ### Transposition Tables
 
 Consider the following move sequences:
-'''
-1. e4 e5
-2. Nf3 Nc6
-'''
-and
-'''
-1. Nf3 Nc6
-2. e4 e5
-'''
+```
+1. e4 e5 2. Nf3 Nc6
+```
+```
+1. Nf3 Nc6 2. e4 e5
+```
+While the order of moves is different, both lead to the same position:
+![Chess position](images/ExampleChessPosition.PNG)
 
+This is called a **transposition.** 
+
+When performing a move search, transpositions are quite common. By storing the evaluation results of the positions we encounter in a **transposition table**, we can just use the stored result instead of doing the work all over again.
 ## Built With
 * React
 * C#
