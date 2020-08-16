@@ -62,7 +62,29 @@ In order to greatly reduce the number of nodes we have to look through, we can d
  
 #### Alpha Beta Pruning
  
-The most common type of pruning is alpha beta pruning.
+The most common type of pruning is alpha beta pruning. The idea is to keep track of two variables, alpha & beta.
+
+* Alpha is the **lowest** score the **maximizing** player is assured of.
+* Beta is the **highest** score the **minimizing** player is assured of.
+
+If there is a point where a player has a **guarenteed** better move than the current move being evaluated, then no further evaluation is needed on the move, since the minimax algorithm will not pick it anyways. **This happens whenever alpha > beta.**
+
+~~~
+//A better move has already been found, so stop evaluation
+if(alpha > beta) {
+    break;
+}
+~~~
+
+Reconsider the following example:
+
+<img src="images/Tree2.PNG" width="450" height="300">
+
+Now lets assume the computer has just finished evaluating the left side of the tree and begins evaulating the right. At this point in time, the maximizer is **guarenteed** to get a score of at least 3, so alpha is 3.
+
+The minimizer will check left first, and see it results in a score of 2. At this point, the minimizer is **guarenteed** to get a score of at most 2, so beta is 2.
+
+Because alpha > beta, an **alpha beta cutoff** has been found. We can stop evaluation without the minimizer ever checking the right path, and the result of the tree is the same.
 
 #### Null Move Pruning
 
