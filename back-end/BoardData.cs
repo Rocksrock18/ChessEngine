@@ -270,7 +270,7 @@ namespace ChessEngine
                         }
                         else
                         {
-                            PieceLocations[num_extra_queens++] = count + c;
+                            PieceLocations[32 + num_extra_queens++] = count + c;
                         }
                     }
                     else if (fen[(r * 8) + c] == 'q')
@@ -283,7 +283,7 @@ namespace ChessEngine
                         }
                         else
                         {
-                            PieceLocations[num_extra_queens++] = count + c;
+                            PieceLocations[32 + num_extra_queens++] = count + c;
                         }
                     }
                     else if (fen[(r * 8) + c] == 'K')
